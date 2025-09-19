@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import NewsCard from '@/components/NewsCard';
+import NotificationSettings from '@/components/NotificationSettings';
 
 const mockNews = [
   {
@@ -99,10 +101,17 @@ export default function Index() {
               </div>
               <h1 className="text-xl font-bold text-foreground">КиржачLive.ru</h1>
             </div>
-            <Button variant="outline" size="sm">
-              <Icon name="Settings" size={16} className="mr-2" />
-              Настройки
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <Icon name="Bell" size={16} className="mr-2" />
+                  Уведомления
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <NotificationSettings />
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Search */}
