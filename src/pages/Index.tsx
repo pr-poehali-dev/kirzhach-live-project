@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import NewsCard from '@/components/NewsCard';
 import NotificationSettings from '@/components/NotificationSettings';
+import AppSettings from '@/components/AppSettings';
 
 const mockNews = [
   {
@@ -101,17 +102,31 @@ export default function Index() {
               </div>
               <h1 className="text-xl font-bold text-foreground">КиржачLive.ru</h1>
             </div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" size="sm">
-                  <Icon name="Bell" size={16} className="mr-2" />
-                  Уведомления
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <NotificationSettings />
-              </DialogContent>
-            </Dialog>
+            <div className="flex gap-2">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <Icon name="Bell" size={16} className="mr-2" />
+                    Уведомления
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <NotificationSettings />
+                </DialogContent>
+              </Dialog>
+              
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="sm">
+                    <Icon name="Settings" size={16} className="mr-2" />
+                    Настройки
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-3xl max-h-[80vh] overflow-y-auto">
+                  <AppSettings />
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
 
           {/* Search */}
